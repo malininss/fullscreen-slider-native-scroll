@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.section {
+  height: 300vh;
+  position: relative;
+}
+
+.section-1 {
+  background: #ffd3d3;
+}
+
+.section-2 {
+  background: #e2b4f1;
+}
+
+.section-3 {
+  background: #b4b8f1;
+}
+
+.fixed-block {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #3fe23f78;
+}
+
+.some-text {
+  font-size: 60px;
+  text-align: center;
+  padding-top: 100px;
+}
