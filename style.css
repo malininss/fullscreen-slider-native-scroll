@@ -10,27 +10,50 @@
   position: relative;
 }
 
-.section-1 {
-  background: #ffd3d3;
-}
-
-.section-2 {
-  background: #e2b4f1;
-}
-
-.section-3 {
-  background: #b4b8f1;
-}
-
 .fixed-block {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   height: 100vh;
-  background: #3fe23f78;
+  position: relative;
+}
+
+.brown-fixed-block {
+  background: brown;
+}
+
+.blue-fixed-block {
+  background: #424288;
+  color: white;
+}
+
+.purple-fixed-block {
+  background: #f795ee;
+  color: purple;
 }
 
 .some-text {
   font-size: 60px;
   text-align: center;
   padding-top: 100px;
+}
+
+.fix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.fixed-block__bg {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 1;
+  transition: opacity 0.2s;
+  position: absolute;
+}
+
+.section:first-child .fixed-block__bg {
+  opacity: 0;
 }
