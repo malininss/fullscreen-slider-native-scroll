@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Угрюм река</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,8 +18,16 @@
       </p>
     </div>
   </section>
-  <section class="full-scroll">
+
+  
+  <!-- Чтобы вернуться к обычному скроллу без анимации, нужно добавить sections'у ниже класс "full-scroll__to-standart-scroll" -->
+  <section id="full-scroll" class="full-scroll">
     <div class="full-scroll__fog"></div>
+    <div class="full-scroll__smoke full-scroll__smoke_bg1"></div>
+    <div class="full-scroll__smoke full-scroll__smoke_bg2"></div>
+    <div class="full-scroll__smoke full-scroll__smoke_bg3"></div>
+
+
     <div class="full-scroll__element">
       <div class="full-scroll__fixed-wrapper full-scroll__fixed-wrapper_bg1">
         <div class="full-scroll__content">lorem</div>
@@ -49,6 +57,8 @@
       </div>
     </div>
   </section>
+
+
   <section>
     <div class="simple-text-block">
       <h2 style="margin-bottom: 20px">Пример блока с обычным скроллом в подвале</h2>
@@ -74,6 +84,29 @@
       </p>
     </div>
   </section>
+
+  <!-- <section id="full-scroll2" class="full-scroll full-scroll__to-standart-scroll">
+    <div class="full-scroll__fog"></div>
+
+    <div class="full-scroll__element full-scroll__set-black-fog">
+      <div class="full-scroll__fixed-wrapper full-scroll__fixed-wrapper_bg3">
+        <div class="full-scroll__content">Hello!</div>
+      </div>
+    </div>
+
+    <div class="full-scroll__element">
+      <div class="full-scroll__fixed-wrapper full-scroll__fixed-wrapper_bg5">
+        <div class="full-scroll__content">Hello!</div>
+      </div>
+    </div>
+    
+    <div class="full-scroll__element">
+      <div class="full-scroll__fixed-wrapper full-scroll__fixed-wrapper_bg2">
+        <div class="full-scroll__content">Hello!</div>
+      </div>
+    </div>
+  </section> -->
+
   <script src="script.js"></script>
 </body>
 </html>

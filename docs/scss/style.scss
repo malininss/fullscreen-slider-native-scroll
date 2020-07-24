@@ -19,6 +19,11 @@
     }
   }
 
+  // Высота блока, если отключаем нестандартный скролл
+  &__element-standard-height {
+    height: 100vh !important;
+  }
+
   &__fixed-wrapper {
     top: 0;
     height: 100vh;
@@ -65,15 +70,54 @@
 
   &__fog {
     top: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    background-color: #fff;
+    background-color: #fdf5e6;
     opacity: 0;
-    transition: opacity 0.2s;
-    transition: background-color 0.5s;
-    position: absolute;
+    transition: opacity 0.5s;
+    // transition: background-color 0.5s;
+    position: fixed;
     z-index: 1100;
   }
+
+  &__smoke {
+    height: 100vh;
+    width: 100%;
+    z-index: 1200;
+    position: fixed;
+    opacity: 0;
+    transition: opacity background-color 0.5s;
+
+    &_bg1 {
+      top: 0;
+      right: 0;
+      background-image: url('img/smoke/1.png');
+      background-repeat: no-repeat;
+      background-position: right top;
+    }
+
+    &_bg2 {
+      top: 0;
+      left: 0;
+      background-image: url('img/smoke/2.png');
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: cover;
+    }
+
+    &_bg3 {
+      top: 0;
+      left: 0;
+      background-image: url('img/smoke/3.png');
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: cover;
+    }
+  }
+
+
+
+
 }
 
 .simple-text-block {
