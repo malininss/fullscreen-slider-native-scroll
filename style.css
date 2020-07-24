@@ -5,6 +5,103 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.full-scroll__background-image-1 {
+  background-image: url('img/1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.full-scroll__background-image-2{
+  background-image: url('img/2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.full-scroll__background-image-3 {
+  background-image: url('img/3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.full-scroll__background-image-4 {
+  background-image: url('img/4.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.full-scroll__background-image-5 {
+  background-image: url('img/5.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.full-scroll {
+  position: relative;
+}
+
+.full-scroll__element {
+  height: 300vh;
+  position: relative;
+}
+
+/* Высота последнего блока cъездается предыдущим,
+поэтому, увеличиваем его */
+
+.full-scroll__element:last-child {
+  height: 400vh;
+}
+
+.full-scroll__fixed-wrapper {
+  top: 0;
+  height: 100vh;
+  position: relative;
+}
+
+.full-scroll__fix-state {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.full-scroll__fog {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+  transition: background-color 0.5s;
+  position: absolute;
+  z-index: 1100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.full-scroll__element:first-child .full-scroll__fog {
+  opacity: 0;
+} */
+
+
+
+
+/* 
+
+
 .section {
   height: 300vh;
   position: relative;
@@ -14,7 +111,6 @@
   top: 0;
   height: 100vh;
   position: relative;
-  /* color: #fff; */
 }
 
 .bg1-fixed-block {
@@ -68,4 +164,4 @@
 
 .white-to-black, .black {
   background-color: #000;
-}
+} */
