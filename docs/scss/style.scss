@@ -74,7 +74,7 @@
     width: 100%;
     background-color: #fdf5e6;
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity, background-color 0.5s;
     // transition: background-color 0.5s;
     position: fixed;
     z-index: 1100;
@@ -86,7 +86,7 @@
     z-index: 1200;
     position: fixed;
     opacity: 0;
-    transition: opacity background-color 0.5s;
+    transition: opacity 0.5s;
 
     &_bg1 {
       top: 0;
