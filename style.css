@@ -41,7 +41,7 @@
 }
 
 .full-scroll__element {
-  height: 300vh;
+  height: 200vh;
   position: relative;
 }
 
@@ -49,7 +49,7 @@
 поэтому, увеличиваем его */
 
 .full-scroll__element:last-child {
-  height: 400vh;
+  height: 300vh;
 }
 
 .full-scroll__fixed-wrapper {
@@ -64,6 +64,16 @@
   width: 100%;
   z-index: 1000;
 }
+
+
+.full-scroll__last-elem {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+}
+
 
 .full-scroll__fog {
   top: 0;

@@ -32,7 +32,16 @@ class ScreenSlider {
       } else {
         fixedBlock.classList.remove('full-scroll__fix-state');
       }
-    })
+
+      if (this.currentSection === this.sections[this.sections.length - 1]) {
+        if (pageYOffset >= this.getCoords(this.currentSection).bottom - window.innerHeight) {
+          fixedBlock.classList.remove('full-scroll__fix-state');
+          fixedBlock.classList.add('full-scroll__last-elem');
+        } else {
+          fixedBlock.classList.remove('full-scroll__last-elem');
+        }
+      } 
+    });
   }
   
   setFogOpacity() {
@@ -42,10 +51,12 @@ class ScreenSlider {
       }
     } 
     
-    if (this.calcScrollPercent() >= 75) {
-      this.fog.style.opacity = (this.calcScrollPercent() - 75) * 5 + '%';
-    } 
-    
+    if (this.currentSection !== this.sections[this.sections.length - 1]) {
+      if (this.calcScrollPercent() >= 75) {
+        this.fog.style.opacity = (this.calcScrollPercent() - 75) * 5 + '%';
+      } 
+    }
+
     if (this.calcScrollPercent() >= 25 && this.calcScrollPercent() <= 75) {
       if (this.currentSection.classList.contains('full-scroll__set-black-fog')) {
         this.fog.style.backgroundColor = '#000';
