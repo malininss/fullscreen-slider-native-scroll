@@ -11,24 +11,26 @@
 }
 
 .fixed-block {
-  /* position: sticky; */
   top: 0;
   height: 100vh;
   position: relative;
+  /* color: #fff; */
 }
 
-.brown-fixed-block {
-  background: brown;
+.bg1-fixed-block {
+  background-image: url('img/1.jpg');
+  background-size: cover;
 }
 
-.blue-fixed-block {
-  background: #424288;
-  color: white;
+.bg2-fixed-block {
+  background-image: url('img/2.jpg'); 
+  background-size: cover;
 }
 
-.purple-fixed-block {
-  background: #f795ee;
-  color: purple;
+.bg3-fixed-block {
+  background-image: url('img/3.jpg');
+  background-size: cover;
+  color: #fff
 }
 
 .some-text {
