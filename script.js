@@ -33,13 +33,21 @@ document.addEventListener('scroll', () => {
   changeSectionVisible();
   const currentBg = currentSection.querySelector('.fixed-block__bg');
 
+
   if (sections.indexOf(currentSection) !== 0) {
     if (calcScrollPercent() <= 25) {
+      if (currentBg.classList.contains('white-to-black')) {
+         currentBg.style.backgroundColor = '#fff';
+      }
+     
       currentBg.style.opacity = 100 - calcScrollPercent() * 4 + '%';
     }
   } 
   
   if (calcScrollPercent() >= 75) {
+    if (currentBg.classList.contains('white-to-black')) {
+      currentBg.style.backgroundColor = '#000';
+   }
     currentBg.style.opacity = (calcScrollPercent() - 75) * 5 + '%';
   } 
   
@@ -50,6 +58,18 @@ document.addEventListener('scroll', () => {
 });
 
 changeSectionVisible();
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const fixCoords = {};
 

@@ -33,6 +33,12 @@
   color: #fff
 }
 
+.bg4-fixed-block {
+  background-image: url('img/4.jpg');
+  background-size: cover;
+  color: #fff
+}
+
 .some-text {
   font-size: 60px;
   text-align: center;
@@ -50,7 +56,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: #000;
+  background-color: #fff;
   opacity: 1;
   transition: opacity 0.2s;
   position: absolute;
@@ -58,4 +64,8 @@
 
 .section:first-child .fixed-block__bg {
   opacity: 0;
+}
+
+.white-to-black, .black {
+  background-color: #000;
 }
