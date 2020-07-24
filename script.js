@@ -1,1 +1,0 @@
-const sectionSlider = new ScreenSlider();
