@@ -13,6 +13,16 @@ class ScreenSlider {
     this.smoke2 = this.mainContainer.querySelector('.full-scroll__smoke_bg2');
     this.smoke3 = this.mainContainer.querySelector('.full-scroll__smoke_bg3');
 
+    this.smoke1Black = this.mainContainer.querySelector('.full-scroll__smoke_bg1-black');
+    this.smoke2Black = this.mainContainer.querySelector('.full-scroll__smoke_bg2-black');
+    this.smoke3Black = this.mainContainer.querySelector('.full-scroll__smoke_bg3-black');
+    
+    this.activeSmoke1;
+    this.activeSmoke2;
+    this.activeSmoke3;
+
+    this.colorTheme = 'white';
+
     this.progressBar = this.mainContainer.querySelector('.full-scroll__progress-bar');
 
     this.currentSection = '';
@@ -63,15 +73,35 @@ class ScreenSlider {
   
   setAboveBgOpacity() {
 
+    if (this.colorTheme === 'white') {
+      this.activeSmoke1 = this.smoke1;
+      this.activeSmoke2 = this.smoke2;
+      this.activeSmoke3 = this.smoke3;
+
+      this.smoke1Black.style.opacity = 0;
+      this.smoke2Black.style.opacity = 0;
+      this.smoke3Black.style.opacity = 0;
+
+    } else {
+      this.activeSmoke1 = this.smoke1Black;
+      this.activeSmoke2 = this.smoke2Black;
+      this.activeSmoke3 = this.smoke3Black;
+
+      this.smoke1.style.opacity = 0;
+      this.smoke3.style.opacity = 0;
+      this.smoke3.style.opacity = 0;
+    }
+
+
     // Показываем скроллбар
     this.progressBar.style.width = this.calcScrollPercent() + '%';
     
     // Если мы находимся не в области просмотра секции, все слоих сверху делаем прозрачными
     if (this.calcScrollPercent() === undefined || this.calcScrollPercent() < 0 || this.calcScrollPercent() > 100) {
       this.fog.style.opacity = 0;
-      this.smoke1.style.opacity = 0;
-      this.smoke2.style.opacity = 0;
-      this.smoke3.style.opacity = 0;
+      this.activeSmoke1.style.opacity = 0;
+      this.activeSmoke2.style.opacity = 0;
+      this.activeSmoke3.style.opacity = 0;
 
       this.progressBar.style.width = 0;
       return;
@@ -100,15 +130,15 @@ class ScreenSlider {
 
         //  Дым выход
         if (this.calcScrollPercent() >= 55) {
-          this.smoke1.style.opacity = 1;
+          this.activeSmoke1.style.opacity = 1;
         } 
 
         if (this.calcScrollPercent() >= 65) {
-          this.smoke2.style.opacity = 1;
+          this.activeSmoke2.style.opacity = 1;
         } 
 
         if (this.calcScrollPercent() >= 70) {
-          this.smoke3.style.opacity = 1;
+          this.activeSmoke3.style.opacity = 1;
         } 
 
         if (this.calcScrollPercent() >= 75) {
@@ -119,15 +149,15 @@ class ScreenSlider {
 
       // Дым вход
       if (this.calcScrollPercent() >= 5 && this.calcScrollPercent() < 40 && this.direction === 'to-bottom') {
-        this.smoke1.style.opacity = 0;
+        this.activeSmoke1.style.opacity = 0;
       } 
 
       if (this.calcScrollPercent() >= 13 && this.calcScrollPercent() < 40 && this.direction === 'to-bottom') {
-        this.smoke2.style.opacity = 0;
+        this.activeSmoke2.style.opacity = 0;
       } 
 
       if (this.calcScrollPercent() >= 10 && this.calcScrollPercent() < 40 && this.direction === 'to-bottom') {
-        this.smoke3.style.opacity = 0;
+        this.activeSmoke3.style.opacity = 0;
       } 
 
     }
@@ -146,15 +176,15 @@ class ScreenSlider {
 
         // Дым при прокрутке вверх
         if (this.calcScrollPercent() <= 15) {
-          this.smoke1.style.opacity = 1;
+          this.activeSmoke1.style.opacity = 1;
         } 
 
         if (this.calcScrollPercent() <= 23) {
-          this.smoke2.style.opacity = 1;
+          this.activeSmoke2.style.opacity = 1;
         } 
 
         if (this.calcScrollPercent() <= 35) {
-          this.smoke3.style.opacity = 1;
+          this.activeSmoke3.style.opacity = 1;
         } 
       }
 
@@ -168,33 +198,36 @@ class ScreenSlider {
 
       // Дым вверх затменение при переходе с предыдущего
       if (this.calcScrollPercent() <= 90 && this.calcScrollPercent() >= 50) {
-        this.smoke1.style.opacity = 0;
+        this.activeSmoke1.style.opacity = 0;
       } 
   
       if (this.calcScrollPercent() <= 80 && this.calcScrollPercent() >= 50) {
-        this.smoke2.style.opacity = 0;
+        this.activeSmoke2.style.opacity = 0;
       } 
   
       if (this.calcScrollPercent() <= 75 && this.calcScrollPercent() >= 50) {
-        this.smoke3.style.opacity = 0;
+        this.activeSmoke3.style.opacity = 0;
       } 
       
     }
 
     // Меняем основной цвет
     if (this.calcScrollPercent() >= 40 && this.calcScrollPercent() <= 60) {
-
       if (this.currentSection.classList.contains('full-scroll__set-black-fog')) {
-        this.fog.style.backgroundColor = '#030c1a';
-        this.smoke1.style.backgroundImage = `url('img/smoke/1-black.png')`;
-        this.smoke2.style.backgroundImage = `url('img/smoke/2-black.png')`;
-        this.smoke3.style.backgroundImage = `url('img/smoke/3-black.png')`;
+        this.setActiveTheme('black');
       } else {
-        this.fog.style.backgroundColor = '#fdf5e6';
-        this.smoke1.style.backgroundImage = `url('img/smoke/1.png')`; 
-        this.smoke2.style.backgroundImage = `url('img/smoke/2.png')`;
-        this.smoke3.style.backgroundImage = `url('img/smoke/3.png')`;
+        this.setActiveTheme('white');
       }
+    }
+  }
+
+  setActiveTheme(theme = 'white') {
+    if (theme === 'white') {
+      this.colorTheme = 'white';
+      this.fog.style.backgroundColor = '#fdf5e6';
+    } else {
+      this.colorTheme = 'black';
+      this.fog.style.backgroundColor = '#030c1a';
     }
   }
 

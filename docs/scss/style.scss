@@ -86,12 +86,12 @@
     position: fixed;
     opacity: 0;
     transition: opacity 1.5s;
+    background-repeat: no-repeat;
 
     &_bg1 {
       top: 0;
       right: 0;
       background-image: url('img/smoke/1.png');
-      background-repeat: no-repeat;
       background-position: right top;
     }
 
@@ -99,7 +99,6 @@
       top: 0;
       left: 0;
       background-image: url('img/smoke/2.png');
-      background-repeat: no-repeat;
       background-position: left top;
       background-size: cover;
     }
@@ -108,7 +107,29 @@
       top: 0;
       left: 0;
       background-image: url('img/smoke/3.png');
-      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: cover;
+    }
+
+    &_bg1-black {
+      top: 0;
+      right: 0;
+      background-image: url('img/smoke/1-black.png');
+      background-position: right top;
+    }
+
+    &_bg2-black {
+      top: 0;
+      left: 0;
+      background-image: url('img/smoke/2-black.png');
+      background-position: left top;
+      background-size: cover;
+    }
+
+    &_bg3-black {
+      top: 0;
+      left: 0;
+      background-image: url('img/smoke/3-black.png');
       background-position: right bottom;
       background-size: cover;
     }
