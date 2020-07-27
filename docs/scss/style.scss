@@ -114,6 +114,15 @@
     }
   }
 
+  &__progress-bar {
+    position: fixed;
+    bottom: 0;
+    width: 10%;
+    height: 8px;
+    border-radius: 0 10px 10px 0;
+    background-color: #3c1558;
+    z-index: 99999;
+  }
 
 
 
@@ -135,7 +144,7 @@
   bottom: 150px;
   left: 150px;
   color: #000;
-  
+
   &__title {
     font-size: 26px;
   }

@@ -13,6 +13,7 @@ class ScreenSlider {
     this.smoke2 = this.mainContainer.querySelector('.full-scroll__smoke_bg2');
     this.smoke3 = this.mainContainer.querySelector('.full-scroll__smoke_bg3');
 
+    this.progressBar = this.mainContainer.querySelector('.full-scroll__progress-bar');
 
     this.currentSection = '';
     this.scrollDirection;
@@ -37,6 +38,11 @@ class ScreenSlider {
   }
   
   calcScrollPercent() {
+    // console.log(this.sections.indexOf(this.currentSection))
+    if (this.sections.indexOf(this.currentSection) === this.sections.length - 1) {
+      return Math.floor((pageYOffset - this.getCoords(this.currentSection).top) / (this.currentSection.clientHeight - window.innerHeight)  * 100);
+    }
+
     if (this.currentSection) {
       return Math.floor((pageYOffset - this.getCoords(this.currentSection).top) / this.currentSection.clientHeight * 100);
     }
@@ -72,8 +78,12 @@ class ScreenSlider {
       this.smoke2.style.opacity = 0;
       this.smoke3.style.opacity = 0;
 
+      this.progressBar.style.width = 0;
       return;
     }
+
+    this.progressBar.style.width = this.calcScrollPercent() + '%';
+
 
 
     // console.log(this.calcScrollPercent());
@@ -183,6 +193,7 @@ class ScreenSlider {
         this.smoke1.style.backgroundImage = `url('img/smoke/1-black.png')`;
         this.smoke2.style.backgroundImage = `url('img/smoke/2-black.png')`;
         this.smoke3.style.backgroundImage = `url('img/smoke/3-black.png')`;
+
       } else {
         this.fog.style.backgroundColor = '#fdf5e6';
         this.smoke1.style.backgroundImage = `url('img/smoke/1.png')`;
