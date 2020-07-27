@@ -5,6 +5,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
+const include = require('gulp-include');
 
 gulp.task('sass', function(done) {
   gulp.src("docs/scss/*.scss")
@@ -18,8 +19,10 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('scripts', function(done) {
-  gulp.src(['docs/scripts/shared/*.js', 'docs/scripts/*.js'])
+  gulp.src('docs/scripts/*.js')
     .pipe(sourcemaps.init())
+    .pipe(include())
+      .on('error', console.log)
     .pipe(concat('script.js'))
     .pipe(babel({
       presets: ['@babel/env']
