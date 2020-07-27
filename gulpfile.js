@@ -18,7 +18,7 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('scripts', function(done) {
-  gulp.src("docs/scripts/*.js")
+  gulp.src(['docs/scripts/shared/*.js', 'docs/scripts/*.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('script.js'))
     .pipe(babel({
@@ -38,7 +38,7 @@ gulp.task('serve', function(done) {
   });
 
   gulp.watch("docs/scss/*.scss", gulp.series('sass'));
-  gulp.watch("docs/scripts/*.js", gulp.series('scripts'));
+  gulp.watch("docs/scripts/**/*.js", gulp.series('scripts'));
   gulp.watch("docs/*.html").on('change', () => {
     browserSync.reload();
     done();

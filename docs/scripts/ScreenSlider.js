@@ -27,30 +27,21 @@ class ScreenSlider {
     this.changeElementVisible();
     
   }
-
-
-  getCoords(elem) {
-    var box = elem.getBoundingClientRect();
-    return {
-      top: box.top + pageYOffset,
-      bottom: box.bottom + pageYOffset
-    };
-  }
   
   calcScrollPercent() {
     // console.log(this.sections.indexOf(this.currentSection))
     if (this.sections.indexOf(this.currentSection) === this.sections.length - 1) {
-      return Math.floor((pageYOffset - this.getCoords(this.currentSection).top) / (this.currentSection.clientHeight - window.innerHeight)  * 100);
+      return Math.floor((pageYOffset - GetCoords.getCoords(this.currentSection).top) / (this.currentSection.clientHeight - window.innerHeight)  * 100);
     }
 
     if (this.currentSection) {
-      return Math.floor((pageYOffset - this.getCoords(this.currentSection).top) / this.currentSection.clientHeight * 100);
+      return Math.floor((pageYOffset - GetCoords.getCoords(this.currentSection).top) / this.currentSection.clientHeight * 100);
     }
   }
   changeElementVisible() {
     this.sections.forEach(item => {
       const fixedBlock = item.querySelector('.full-scroll__fixed-wrapper');
-      const elemCoords = this.getCoords(item);
+      const elemCoords = GetCoords.getCoords(item);
       if (pageYOffset >= elemCoords.top && elemCoords.bottom >= pageYOffset) {
         this.currentSection = item;
         fixedBlock.classList.add('full-scroll__fix-state');
@@ -59,7 +50,7 @@ class ScreenSlider {
       }
 
       if (this.currentSection === this.sections[this.sections.length - 1]) {
-        if (pageYOffset >= this.getCoords(this.currentSection).bottom - window.innerHeight) {
+        if (pageYOffset >= GetCoords.getCoords(this.currentSection).bottom - window.innerHeight) {
           fixedBlock.classList.remove('full-scroll__fix-state');
           fixedBlock.classList.add('full-scroll__last-elem');
         } else {
@@ -184,7 +175,7 @@ class ScreenSlider {
         this.smoke2.style.opacity = 0;
       } 
   
-      if (this.calcScrollPercent() <= 70 && this.calcScrollPercent() >= 50) {
+      if (this.calcScrollPercent() <= 75 && this.calcScrollPercent() >= 50) {
         this.smoke3.style.opacity = 0;
       } 
       
@@ -200,7 +191,7 @@ class ScreenSlider {
         this.smoke3.style.backgroundImage = `url('img/smoke/3-black.png')`;
       } else {
         this.fog.style.backgroundColor = '#fdf5e6';
-        this.smoke1.style.backgroundImage = `url('img/smoke/1.png')`;
+        this.smoke1.style.backgroundImage = `url('img/smoke/1.png')`; 
         this.smoke2.style.backgroundImage = `url('img/smoke/2.png')`;
         this.smoke3.style.backgroundImage = `url('img/smoke/3.png')`;
       }

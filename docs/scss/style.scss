@@ -74,7 +74,7 @@
     width: 100%;
     background-color: #fdf5e6;
     opacity: 0;
-    transition: opacity 0.2s, background-color 0.2s;
+    transition: opacity 0.2s, background-color 0.5s;
     position: fixed;
     z-index: 1100;
   }
@@ -123,9 +123,12 @@
     background-color: #3c1558;
     z-index: 99999;
   }
+}
 
 
-
+.anchor {
+  position: absolute;
+  top: 200px;
 }
 
 .simple-text-block {
