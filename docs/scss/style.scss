@@ -9,13 +9,13 @@
   position: relative;
 
   &__element {
-    height: 200vh;
+    height: 150vh;
     position: relative;
 
     &:last-child {
       // Высота последнего блока cъездается
       // предыдущим, поэтому, увеличиваем его
-      height: 300vh;
+      height: 250vh;
     }
   }
 
@@ -74,8 +74,7 @@
     width: 100%;
     background-color: #fdf5e6;
     opacity: 0;
-    transition: opacity, background-color 0.5s;
-    // transition: background-color 0.5s;
+    transition: opacity 0.2s, background-color 0.2s;
     position: fixed;
     z-index: 1100;
   }
@@ -126,4 +125,23 @@
   padding: 100px 20px;
 }
 
+.full-scroll__set-black-fog .content {
+  color: #fff;
+}
 
+.content {
+  max-width: 500px;
+  position: absolute;
+  bottom: 150px;
+  left: 150px;
+  color: #000;
+  
+  &__title {
+    font-size: 26px;
+  }
+
+  &__text{
+    margin-top: 20px;
+    font-size: 22px;
+  }
+}
